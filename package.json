@@ -1,18 +1,24 @@
 {
-  "name": "rollup-test",
+  "name": "rollup-plugin-import-assert",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/import-assert.js",
+  "module": "dist/import-assert.js",
   "scripts": {
     "start": "rollup -c",
     "build": "tsc"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Caleb D. Williams <caleb.d.williams@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^16.0.0",
     "acorn-import-assertions": "^1.7.1",
+    "ava": "^3.15.0",
     "rollup": "^2.52.7",
+    "string-to-template-literal": "^0.2.2",
     "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "acorn-import-assertions": "^1.7.1"
   }
 }
