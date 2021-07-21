@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-import-assert",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Rollup plugin to add import assertion behavior and syntax support",
   "main": "dist/import-assert.js",
   "module": "dist/import-assert.js",
@@ -10,7 +10,14 @@
     "release": "standard-version",
     "postrelease": "git push --follow-tags origin main && npm publish"
   },
-  "keywords": ["Rollup", "constructible stylesheets", "json", "css", "web components", "acorn"],
+  "keywords": [
+    "Rollup",
+    "constructible stylesheets",
+    "json",
+    "css",
+    "web components",
+    "acorn"
+  ],
   "author": "Caleb D. Williams <caleb.d.williams@gmail.com>",
   "license": "MIT",
   "devDependencies": {
