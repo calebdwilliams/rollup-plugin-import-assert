@@ -7,8 +7,10 @@
   "scripts": {
     "start": "rollup -c",
     "build": "tsc",
-    "release": "standard-version"
+    "release": "standard-version",
+    "postrelease": "git push --follow-tags origin main && npm publish"
   },
+  "keywords": ["Rollup", "constructible stylesheets", "json", "css", "web components", "acorn"],
   "author": "Caleb D. Williams <caleb.d.williams@gmail.com>",
   "license": "MIT",
   "devDependencies": {
