@@ -5,7 +5,7 @@ export default {
     input: 'public/index.js',
     output: {
         format: 'esm',
-        file: 'lib/index.js'
+        dir: 'lib'
     },
     acornInjectPlugins: [importAssertions],
     plugins: [

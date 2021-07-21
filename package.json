@@ -19,6 +19,7 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "acorn-import-assertions": "^1.7.1"
+    "acorn-import-assertions": "^1.7.1",
+    "rollup": "^2.0.0"
   }
 }
