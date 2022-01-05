@@ -19,6 +19,7 @@
     "acorn"
   ],
   "author": "Caleb D. Williams <caleb.d.williams@gmail.com>",
+  "repository": "github:calebdwilliams/rollup-plugin-import-assert",
   "license": "MIT",
   "dependencies": {
     "string-to-template-literal": "^0.2.2"
