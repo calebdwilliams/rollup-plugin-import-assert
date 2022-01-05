@@ -31,7 +31,7 @@ const filePattern = /\.(js|ts|jsx|tsx)$/;
 
 const getImportPath = (id: string, source: string): string => path.resolve(path.dirname(id), source);
 
-export default function importAssertionPlugin(): Plugin {
+export function importAssertionsPlugin(): Plugin {
   return {
     name: 'rollup-plugin-import-assert',
     transform(data: string, id: string) {
@@ -56,7 +56,19 @@ export default function importAssertionPlugin(): Plugin {
         });
 
         importExpressions.forEach(node => {
-          const importPath = getImportPath(id, node.source.value);
+          // Skip dynamic imports with expressions
+          // @example: import(`./foo/${bar}.js`); // NOK
+          // @example: import(`./foo/bar.js`); // OK
+          if(node.source.type === "TemplateLiteral" && node.source.quasis.length > 1) {
+            return;
+          }
+
+          // @example: `import(foo);` NOK
+          if(!node.source.value) return;
+
+          const source = node.source.value || node.source.quasis[0].value.raw;
+          const importPath = getImportPath(id, source);
+
           // TODO: We can still make this better
           if (node.hasOwnProperty('arguments') && getObjects(node, 'name', 'assert')) {
             const assert: Assertion = { type: node.arguments[0].properties[0]?.value?.properties[0].value.value };
