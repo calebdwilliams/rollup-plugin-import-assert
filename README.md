@@ -56,3 +56,14 @@ customElements.define('my-custom-element', MyCustomElement);
 ```
 
 Assuming valid CSS in `styles.css`, the contents of the the CSS will be transformed to use CSS module scripts for use with `DocumentOrShadowRoot.prototype.adoptedStyleSheets`. Currently this API only exists in Chrome, but a [polyfill exists](https://www.npmjs.com/package/construct-style-sheets-polyfill) to port the behavior back to IE11.
+
+## Limitations
+
+This plugin will ignore dynamic imports with dynamic values, e.g.: 
+
+```js
+import(`./foo/${bar}.json`, { assert: { type: 'json' } }); // will be ignored
+
+const foo = './foo.json';
+import(foo, { assert: { type: 'json' } }); // will be ignored
+```
