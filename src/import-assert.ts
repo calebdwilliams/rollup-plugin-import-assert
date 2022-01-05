@@ -31,7 +31,7 @@ const filePattern = /\.(js|ts|jsx|tsx)$/;
 
 const getImportPath = (id: string, source: string): string => path.resolve(path.dirname(id), source);
 
-export default function importAssertionPlugin(): Plugin {
+export function importAssertionPlugin(): Plugin {
   return {
     name: 'rollup-plugin-import-assert',
     transform(data: string, id: string) {

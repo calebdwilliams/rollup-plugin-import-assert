@@ -1,14 +1,17 @@
-import { importAssertions } from 'acorn-import-assertions';
-import plugin from './dist/import-assert';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default {
-    input: 'public/index.js',
+    input: 'dist/import-assert.js',
     output: {
-        format: 'esm',
-        dir: 'lib'
+        format: 'cjs',
+        file: 'dist/import-assert.cjs'
     },
-    acornInjectPlugins: [importAssertions],
     plugins: [
-        plugin()
+        nodeResolve({
+            preferBuiltins: true
+        }),
+        commonjs()
+
     ]
 }
