@@ -1,5 +1,5 @@
 import { importAssertions } from 'acorn-import-assertions';
-import { importAssertionPlugin } from './dist/import-assert.js';
+import { importAssertionsPlugin } from './dist/import-assert.js';
 
 export default {
     input: 'public/index.js',
@@ -9,6 +9,6 @@ export default {
     },
     acornInjectPlugins: [importAssertions],
     plugins: [
-        importAssertionPlugin()
+        importAssertionsPlugin()
     ]
 }

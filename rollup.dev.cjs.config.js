@@ -1,5 +1,5 @@
 const { importAssertions } = require('acorn-import-assertions');
-const { importAssertionPlugin } = require('./dist/import-assert.cjs');
+const { importAssertionsPlugin } = require('./dist/import-assert.cjs');
 
 module.exports = {
     input: 'public/index.js',
@@ -9,6 +9,6 @@ module.exports = {
     },
     acornInjectPlugins: [importAssertions],
     plugins: [
-        importAssertionPlugin()
+        importAssertionsPlugin()
     ]
 }

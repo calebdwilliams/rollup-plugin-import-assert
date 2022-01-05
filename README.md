@@ -25,7 +25,7 @@ yarn add -D rollup-plugin-import-assert
 Once the plugin is installed, you will also need to make sure you have the `acorn-import-assertions` package installed. You can then add both items to your Rollup configuration as below:
 
 ```javascript
-import { importAssertionPlugin } from 'rollup-plugin-import-assert';
+import { importAssertionsPlugin } from 'rollup-plugin-import-assert';
 import { importAssertions } from 'acorn-import-assertions';
 
 export default {
@@ -35,7 +35,7 @@ export default {
     dir: 'lib' // only necessary to enable dynamic imports
   },
   acornInjectPlugins: [ importAssertions ],
-  plugins: [ importAssertionPlugin() ]
+  plugins: [ importAssertionsPlugin() ]
 }
 ```
 
