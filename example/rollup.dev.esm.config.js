@@ -1,11 +1,11 @@
 import { importAssertions } from 'acorn-import-assertions';
-import { importAssertionsPlugin } from './dist/import-assert.js';
+import { importAssertionsPlugin } from '../dist/import-assert.js';
 
 export default {
-    input: 'public/index.js',
+    input: 'example/src/index.js',
     output: {
         format: 'esm',
-        dir: 'lib'
+        dir: 'example/out'
     },
     acornInjectPlugins: [importAssertions],
     plugins: [
