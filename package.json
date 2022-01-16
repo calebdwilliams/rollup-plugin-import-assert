@@ -10,8 +10,8 @@
     "import": "./dist/import-assert.js"
   },
   "scripts": {
-    "start": "rollup -c rollup.dev.esm.config.js",
-    "start:cjs": "rollup -c rollup.dev.cjs.config.js",
+    "start": "rollup -c example/rollup.dev.esm.config.js",
+    "start:cjs": "rollup -c example/rollup.dev.cjs.config.js",
     "build": "tsc && rollup -c rollup.config.js",
     "release": "standard-version",
     "postrelease": "git push --follow-tags origin main && npm publish"
@@ -43,5 +43,8 @@
   "peerDependencies": {
     "acorn-import-assertions": "^1.7.1",
     "rollup": "^2.0.0"
+  },
+  "directories": {
+    "example": "./example"
   }
 }

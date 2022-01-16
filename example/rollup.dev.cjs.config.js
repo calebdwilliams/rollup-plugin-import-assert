@@ -1,11 +1,11 @@
 const { importAssertions } = require('acorn-import-assertions');
-const { importAssertionsPlugin } = require('./dist/import-assert.cjs');
+const { importAssertionsPlugin } = require('../dist/import-assert.cjs');
 
 module.exports = {
-    input: 'public/index.js',
+    input: 'example/src/index.js',
     output: {
         format: 'esm',
-        dir: 'lib'
+        dir: 'example/out'
     },
     acornInjectPlugins: [importAssertions],
     plugins: [
