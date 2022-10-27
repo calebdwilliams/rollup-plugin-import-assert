@@ -107,12 +107,12 @@ export function importAssertionsPlugin(): Plugin {
           code = `export default ${data}`;
         }
 
-        /** Return the new data and map it back to the original source file */
-        return { code, mappings: id };
+        /** Return the new data */
+        return { code, map: {mappings: ""} };
       }
 
       /** If none of the above exists, just continue as normal */
-      return { code };
+      return { code, map: null };
     }
   }
 }
