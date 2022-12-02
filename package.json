@@ -12,7 +12,7 @@
   "scripts": {
     "start": "rollup -c rollup.dev.esm.config.js",
     "start:cjs": "rollup -c rollup.dev.cjs.config.js",
-    "build": "tsc && rollup -c rollup.config.js",
+    "prepack": "tsc && rollup -c rollup.config.js",
     "release": "standard-version",
     "postrelease": "git push --follow-tags origin main && npm publish"
   },
