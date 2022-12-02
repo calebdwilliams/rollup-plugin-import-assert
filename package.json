@@ -33,7 +33,6 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.2",
-    "@types/node": "^16.0.0",
     "acorn-import-assertions": "^1.7.1",
     "ava": "^3.15.0",
     "rollup": "^2.52.7",
