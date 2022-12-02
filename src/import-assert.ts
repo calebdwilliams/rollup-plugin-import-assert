@@ -47,7 +47,7 @@ export function importAssertionsPlugin(): Plugin {
           if (node.assertions) {
             const [ assertion ] = node.assertions as any;
             const assert: Assertion = { type: assertion.value.value };
-            const importPath = await this.resolve(node.source.value, id).id
+            const importPath = (await this.resolve(node.source.value, id)).id
             assertionMap.set(importPath, assert);
           }
         };
@@ -64,7 +64,7 @@ export function importAssertionsPlugin(): Plugin {
           if(!node.source.value) return;
 
           const source = node.source.value || node.source.quasis[0].value.raw;
-          const importPath = await this.resolve(source, id).id;
+          const importPath = (await this.resolve(source, id)).id;
 
           // TODO: We can still make this better
           if (node.hasOwnProperty('arguments') && getObjects(node, 'name', 'assert')) {
