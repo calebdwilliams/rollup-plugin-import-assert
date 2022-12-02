@@ -8,10 +8,8 @@ export default {
         file: 'dist/import-assert.cjs'
     },
     plugins: [
-        nodeResolve({
-            preferBuiltins: true
-        }),
+        nodeResolve(),
         commonjs()
-
+        
     ]
 }
