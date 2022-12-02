@@ -1,4 +1,3 @@
-import path from 'path';
 import { Plugin } from 'rollup';
 import convert from 'string-to-template-literal';
 
@@ -29,12 +28,10 @@ type Assertion = { type: 'css'|'json' };
 const assertionMap = new Map<string, Assertion>();
 const filePattern = /\.(js|ts|jsx|tsx)$/;
 
-const getImportPath = (id: string, source: string): string => path.resolve(path.dirname(id), source);
-
 export function importAssertionsPlugin(): Plugin {
   return {
     name: 'rollup-plugin-import-assert',
-    transform(data: string, id: string) {
+    async transform(data: string, id: string) {
       let code = data;
       /** If the file is a JS-like file, continue */
       if (filePattern.exec(id)) {
@@ -46,16 +43,16 @@ export function importAssertionsPlugin(): Plugin {
         const importDeclarations = getObjects(body, 'type', 'ImportDeclaration');
         const importExpressions = getObjects(body, 'type', 'ImportExpression');
 
-        importDeclarations.forEach(node => {
+        for (const node of importDeclarations) {
           if (node.assertions) {
             const [ assertion ] = node.assertions as any;
             const assert: Assertion = { type: assertion.value.value };
-            const importPath = getImportPath(id, node.source.value);
+            const importPath = await this.resolve(node.source.value, id).id
             assertionMap.set(importPath, assert);
           }
-        });
+        };
 
-        importExpressions.forEach(node => {
+        for (const node of importExpressions) {
           // Skip dynamic imports with expressions
           // @example: import(`./foo/${bar}.js`); // NOK
           // @example: import(`./foo/bar.js`); // OK
@@ -67,7 +64,7 @@ export function importAssertionsPlugin(): Plugin {
           if(!node.source.value) return;
 
           const source = node.source.value || node.source.quasis[0].value.raw;
-          const importPath = getImportPath(id, source);
+          const importPath = await this.resolve(source, id).id;
 
           // TODO: We can still make this better
           if (node.hasOwnProperty('arguments') && getObjects(node, 'name', 'assert')) {
@@ -89,7 +86,7 @@ export function importAssertionsPlugin(): Plugin {
               });
             }
           }
-        });
+        }
       }
 
       const assertion = assertionMap.get(id);
