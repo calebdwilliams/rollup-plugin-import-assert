@@ -28,20 +28,20 @@
   "repository": "github:calebdwilliams/rollup-plugin-import-assert",
   "license": "MIT",
   "dependencies": {
-    "string-to-template-literal": "^0.2.2"
+    "string-to-template-literal": "^2.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.1.2",
-    "@types/node": "^16.0.0",
-    "acorn-import-assertions": "^1.7.1",
-    "ava": "^3.15.0",
-    "rollup": "^2.52.7",
-    "standard-version": "^9.3.1",
-    "typescript": "^4.3.5"
+    "@rollup/plugin-commonjs": "^23.0.7",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/node": "^18.11.17",
+    "acorn-import-assertions": "^1.8.0",
+    "ava": "^5.1.0",
+    "rollup": "^3.7.5",
+    "standard-version": "^9.5.0",
+    "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "acorn-import-assertions": "^1.7.1",
-    "rollup": "^2.0.0"
+    "acorn-import-assertions": "^1.8.0",
+    "rollup": "^3.0.0"
   }
 }
