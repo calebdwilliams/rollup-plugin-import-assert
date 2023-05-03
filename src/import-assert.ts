@@ -1,6 +1,23 @@
 import path from 'path';
 import { Plugin } from 'rollup';
-import convert from 'string-to-template-literal';
+
+function stringToTemplateLiteral(text: string): string  {
+  if (!text) {
+    return '``';
+  }
+
+  const illegalChars = new Map<string, string>();
+  illegalChars.set('\\', '\\\\');
+  illegalChars.set('`', '\\`');
+  illegalChars.set('$', '\\$');
+
+  let res = '';
+  for (let i = 0; i < text.length; i++) {
+    const c = text.charAt(i);
+    res += illegalChars.get(c) || c;
+  }
+  return `\`${res}\``;
+}
 
 function getObjects(obj: any, key: string, val: string): any[] {
   let objects = [];
@@ -101,7 +118,7 @@ export function importAssertionsPlugin(): Plugin {
 
         if (type === 'css') {
           /** Parse files asserted as CSS to use constructible stylesheets */
-          code = `const sheet = new CSSStyleSheet();sheet.replaceSync(${convert(data)});export default sheet;`;
+          code = `const sheet = new CSSStyleSheet();sheet.replaceSync(${stringToTemplateLiteral(data)});export default sheet;`;
         } else if (type === 'json') {
           /** Parse files asserted as JSON as a JS object */
           code = `export default ${data}`;
