@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-import-assert",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A Rollup plugin to add import assertion behavior and syntax support",
   "main": "dist/import-assert.js",
   "module": "dist/import-assert.js",
