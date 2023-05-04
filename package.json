@@ -10,11 +10,12 @@
     "import": "./dist/import-assert.js"
   },
   "scripts": {
-    "start": "rollup -c rollup.dev.esm.config.js",
-    "start:cjs": "rollup -c rollup.dev.cjs.config.js",
     "build": "tsc && rollup -c rollup.config.js",
+    "postrelease": "git push --follow-tags origin main && npm publish",
+    "prepack": "npm run build",
     "release": "standard-version",
-    "postrelease": "git push --follow-tags origin main && npm publish"
+    "start": "rollup -c rollup.dev.esm.config.js",
+    "start:cjs": "rollup -c rollup.dev.cjs.config.js"
   },
   "keywords": [
     "Rollup",
