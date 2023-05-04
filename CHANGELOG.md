@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/calebdwilliams/rollup-plugin-import-assert/compare/v2.1.3...v3.0.0) (2023-05-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Bump deps because of rollup 3
+
+### Features
+
+* upgrade to rollup 3 ([309e531](https://github.com/calebdwilliams/rollup-plugin-import-assert/commit/309e531288d2835e4bbcfddbccdb91eb7bcc7149))
+
 ### [2.1.3](https://github.com/calebdwilliams/rollup-plugin-import-assert/compare/v2.1.2...v2.1.3) (2022-11-08)
 
 ### [2.1.2](https://github.com/calebdwilliams/rollup-plugin-import-assert/compare/v2.1.0...v2.1.2) (2022-10-27)
